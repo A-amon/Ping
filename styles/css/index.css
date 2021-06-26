@@ -1,0 +1,452 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap");
+html, body, h1 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+input, button {
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+a {
+  line-height: 1;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  text-align: center;
+  font-family: "Libre Franklin", sans-serif;
+  padding: 5rem 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding: 5rem 5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    padding: 5rem 10rem;
+  }
+}
+
+.text--bold {
+  font-weight: bold;
+}
+
+.hero.subscribed .hero__desc, .hero.subscribed .hero__form {
+  -webkit-animation: scaleDown 0.5s ease-in 1 forwards;
+          animation: scaleDown 0.5s ease-in 1 forwards;
+}
+
+.hero.subscribed .hero__content::before {
+  -webkit-animation: starLeft 0.2s ease-in 0.3s 1 forwards;
+          animation: starLeft 0.2s ease-in 0.3s 1 forwards;
+}
+
+.hero.subscribed .hero__content::after {
+  -webkit-animation: starRight 0.2s ease-in 0.3s 1 forwards;
+          animation: starRight 0.2s ease-in 0.3s 1 forwards;
+}
+
+.hero.subscribed .hero__subscribed {
+  -webkit-animation: fadeIn 1.5s 1 forwards;
+          animation: fadeIn 1.5s 1 forwards;
+}
+
+.hero__content {
+  position: relative;
+}
+
+.hero__content::before, .hero__content::after {
+  content: '';
+  height: 100px;
+  width: 100px;
+  background: url("../../assets/images/star.png");
+  background-size: cover;
+  position: absolute;
+  top: 150%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 0;
+  -webkit-filter: drop-shadow(0 5px 5px rgba(79, 125, 243, 0.3));
+          filter: drop-shadow(0 5px 5px rgba(79, 125, 243, 0.3));
+}
+
+.hero__content::before {
+  height: 50px;
+  width: 50px;
+}
+
+.hero .logo img {
+  height: 1rem;
+}
+
+.hero__heading {
+  font-weight: normal;
+  margin: 2rem 0 1rem 0;
+  color: #969696;
+  font-size: 1.5rem;
+}
+
+.hero__heading span {
+  color: initial;
+}
+
+.hero__desc {
+  font-size: 0.8rem;
+  color: #151f29;
+  font-weight: 600;
+}
+
+.hero__form {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.hero__form input, .hero__form button {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+.hero__form input {
+  border: 1px solid #c2d3ff;
+}
+
+.hero__form input:focus {
+  outline: none;
+}
+
+.hero__form input::-webkit-input-placeholder {
+  color: #c2d3ff;
+}
+
+.hero__form input:-ms-input-placeholder {
+  color: #c2d3ff;
+}
+
+.hero__form input::-ms-input-placeholder {
+  color: #c2d3ff;
+}
+
+.hero__form input::placeholder {
+  color: #c2d3ff;
+}
+
+.hero__form input[aria-invalid="true"] {
+  border-color: #ff5263;
+}
+
+.hero__form input[aria-invalid="true"] ~ .form__error {
+  display: block;
+}
+
+.hero__form button {
+  background: #4f7df3;
+  color: white;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  -webkit-box-shadow: 0 5px 10px rgba(79, 125, 243, 0.5);
+          box-shadow: 0 5px 10px rgba(79, 125, 243, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__form button:hover {
+  opacity: 0.8;
+}
+
+.hero__form button::before, .hero__form button::after {
+  content: '';
+  height: 200px;
+  background: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-animation: slideRight 1s linear 1 forwards;
+          animation: slideRight 1s linear 1 forwards;
+}
+
+.hero__form button::before {
+  background: rgba(255, 255, 255, 0.3);
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.hero__form .form__error {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #ff5263;
+}
+
+.hero__subscribed {
+  display: block;
+  position: absolute;
+  top: 60%;
+  left: 0;
+  right: 0;
+}
+
+.hero__image {
+  width: 100%;
+  margin: 3rem 0 5rem 0;
+  max-width: 500px;
+  -webkit-animation: fadeIn 1s 1 forwards;
+          animation: fadeIn 1s 1 forwards;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .hero .logo img {
+    height: initial;
+  }
+  .hero__heading {
+    font-size: 2.5rem;
+  }
+  .hero__desc {
+    font-size: 1rem;
+  }
+  .hero__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 2rem auto 0 auto;
+    max-width: 500px;
+  }
+  .hero__form button {
+    margin: 0 0 0 1rem;
+    max-width: 150px;
+  }
+  .hero__form button::before, .hero__form button::after {
+    -webkit-animation-duration: 0.6s;
+            animation-duration: 0.6s;
+  }
+  .hero__form .form__error {
+    text-align: left;
+    left: 1rem;
+  }
+  .hero__image {
+    margin: 5rem 0;
+  }
+}
+
+.footer__accounts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer__accounts .footer__account {
+  margin: 0 0.5rem;
+  border: 1px solid rgba(150, 150, 150, 0.1);
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer__accounts .footer__account:hover {
+  background: #4f7df3;
+  border-color: #4f7df3;
+}
+
+.footer__accounts .footer__account:hover svg {
+  fill: white;
+}
+
+.footer__accounts .footer__account svg {
+  height: 1rem;
+  fill: #4f7df3;
+}
+
+.footer__text {
+  display: block;
+  font-size: 0.8rem;
+  color: #969696;
+  margin-top: 2rem;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slideRight {
+  0% {
+    opacity: 0;
+    left: -50%;
+    width: 0;
+  }
+  50% {
+    opacity: 1;
+    left: 50%;
+    width: 100px;
+  }
+  100% {
+    opacity: 0;
+    left: 150%;
+    width: 0;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    left: -50%;
+    width: 0;
+  }
+  50% {
+    opacity: 1;
+    left: 50%;
+    width: 100px;
+  }
+  100% {
+    opacity: 0;
+    left: 150%;
+    width: 0;
+  }
+}
+
+@-webkit-keyframes scaleDown {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  30% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes scaleDown {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+  30% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@-webkit-keyframes starLeft {
+  to {
+    opacity: 1;
+    top: 100%;
+    left: -100px;
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+}
+
+@keyframes starLeft {
+  to {
+    opacity: 1;
+    top: 100%;
+    left: -100px;
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+}
+
+@-webkit-keyframes starRight {
+  to {
+    opacity: 1;
+    top: 80%;
+    left: 50px;
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+}
+
+@keyframes starRight {
+  to {
+    opacity: 1;
+    top: 80%;
+    left: 50px;
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+}
+/*# sourceMappingURL=index.css.map */

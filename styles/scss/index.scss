@@ -1,0 +1,313 @@
+@import "typography.scss";
+@import "color.scss";
+@import "reset.scss";
+@import "breakpoints.scss";
+
+$padding-small:2rem;
+$padding-medium:5rem;
+$padding-large:10rem;
+
+$font-small:0.8rem;
+$font-medium:1rem;
+$font-large:1.5rem;
+$font-very-large:2.5rem;
+
+body{
+    text-align: center;
+    font-family: $font-libre;
+    padding:$padding-medium $padding-small;
+    @include tablet-query{
+        padding:$padding-medium $padding-medium;
+    }
+
+    @include laptop-query{
+        padding:$padding-medium $padding-large;
+    }
+}
+
+.text--bold{
+    font-weight: bold;
+}
+
+.hero{
+    &.subscribed{
+        .hero__desc, .hero__form{
+            animation:scaleDown 0.5s ease-in 1 forwards;
+        }
+        .hero__content{
+            &::before{
+                animation:starLeft 0.2s ease-in 0.3s 1 forwards;
+            }
+            &::after{
+                animation:starRight 0.2s ease-in 0.3s 1 forwards;
+            }
+        }
+
+        .hero__subscribed{
+            animation:fadeIn 1.5s 1 forwards;
+        }
+    }
+
+    &__content{
+        position: relative;
+        &::before,&::after{
+            content:'';
+            height:100px;
+            width: 100px;
+            background:url("../../assets/images/star.png");
+            background-size: cover;
+            position: absolute;
+            top:150%;
+            left:0;
+            right:0;
+            margin:auto;
+            opacity:0;
+            filter:drop-shadow(0 5px 5px rgba($blue,0.3));
+        }
+        &::before{
+            height:50px;
+            width: 50px;
+        }
+    }
+
+    .logo img{
+        height: 1rem;
+    }
+
+    &__heading{
+        font-weight: normal;   
+        margin:2rem 0 1rem 0;
+        color: $gray;
+        font-size: $font-large;
+        span{
+            color:initial;
+        }
+    }
+
+    &__desc{
+        font-size: $font-small;
+        color: $very-dark-blue;
+        font-weight: 600;
+    }
+
+    &__form{
+        margin-top:2rem;
+        position: relative;
+
+        input,button{
+            width: 100%;
+            box-sizing: border-box;
+            padding:0.8rem 2rem;
+            border-radius: 50px;
+            font-size: $font-small;
+        }
+        input{
+            border:1px solid $pale-blue;
+            &:focus{
+                outline:none;
+            }
+
+            &::placeholder{
+                color:$pale-blue;
+            }
+
+            &[aria-invalid="true"]{
+                border-color: $light-red;
+                & ~ .form__error{
+                    display: block;
+                }
+            }
+        }
+
+        button{
+            background: $blue;
+            color:$white;
+            margin-top:0.5rem;
+            font-weight: 600;
+            box-shadow: 0 5px 10px rgba($blue,0.5);
+            position: relative;
+            overflow: hidden;
+            &:hover{
+                opacity: 0.8;
+            }
+
+            &::before, &::after{
+                content:'';
+                height:200px;
+                background:rgba($white,0.8);
+                position: absolute;
+                top:0;
+                bottom:0;
+                margin:auto;
+                transform:rotate(-45deg);
+                animation:slideRight 1s linear 1 forwards;
+            }
+
+            &::before{
+                background:rgba($white,0.3);
+                animation-delay: 0.3s;
+            }
+        }
+
+        .form__error{
+            display: none;
+            position: absolute;
+            top:calc(100% + 0.5rem);
+            left:0;
+            width: 100%;
+            text-align: center;
+            font-size: $font-small;
+            font-style: italic;
+            color: $light-red;
+        }
+    }
+
+    &__subscribed{
+        display: block;
+        position: absolute;
+        top: 60%;
+        left: 0;
+        right: 0;
+    }
+
+    &__image{
+        width: 100%;
+        margin:3rem 0 5rem 0;
+        max-width: 500px;
+        animation:fadeIn 1s 1 forwards;
+        position: relative;
+    }
+
+    @include tablet-query{
+        .logo img{
+            height:initial;
+        }
+        &__heading{
+            font-size: $font-very-large;
+        }
+        &__desc{
+            font-size:$font-medium;
+        }
+        &__form{
+            display: flex;
+            margin:2rem auto 0 auto;
+            max-width: 500px;
+
+            button{
+                margin: 0 0 0 1rem;
+                max-width: 150px;
+                &::before,&::after{
+                    animation-duration: 0.6s;
+                }
+            }
+
+            .form__error{
+                text-align: left;
+                left:1rem;
+            }
+        }
+        &__image{
+            margin:5rem 0;
+        }
+    }
+}
+
+.footer{
+    &__accounts{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .footer__account{
+            margin:0 0.5rem;
+            border:1px solid rgba($gray,0.1);
+            border-radius: 50%;
+            height: 2rem;
+            width: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover{
+                background:$blue;
+                border-color:$blue;
+                svg{
+                    fill:$white;
+                }
+            }
+            svg{
+                height:1rem;
+                fill:$blue;
+            }
+        }
+    }
+
+    &__text{
+        display: block;
+        font-size: 0.8rem;
+        color: $gray;
+        margin-top:2rem;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes slideRight{
+    0%{
+        opacity:0;
+        left:-50%;
+        width: 0;
+    }
+    50%{
+        opacity: 1;
+        left:50%;
+        width: 100px;
+    }
+    100%{
+        opacity:0;
+        left:150%;
+        width:0;
+    }
+}
+
+@keyframes scaleDown{
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+    30%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+    100%{
+        transform:scale(0);
+        opacity:0;
+        display: none;
+    }
+}
+
+@keyframes starLeft{
+    to{
+        opacity:1;
+        top:100%;
+        left:-100px;
+        transform:rotate(-15deg);
+    }
+}
+
+@keyframes starRight{
+    to{
+        opacity:1;
+        top:80%;
+        left:50px;
+        transform:rotate(25deg);
+    }
+}
